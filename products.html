@@ -1,0 +1,1321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+        <title>IndiaMart | Shop</title>
+        <meta content="" name="description"/>
+        <meta content="" name="keywords"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Favicons -->
+        <link href="assets/img/logowt.svg" rel="icon"/>
+        <link
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" ss/>
+
+        <!-- Google Fonts -->
+        <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
+
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"/>
+        <link
+        rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <style>
+            input[type="number"] {
+                outline: none;
+                border: 1px solid #603641;
+                padding: 3px 7px;
+                text-align: center;
+                width: 70px;
+            }
+
+
+            div.row.justify-content-around {
+                margin: 50px 0;
+            }
+
+            #king {
+                margin-top: 15px;
+            }
+
+            #east {
+                margin-top: 15px;
+            }
+
+            .overlay {
+                height: 100vh;
+                width: 100vw;
+                position: fixed;
+                top: 0;
+                background: hsla(0, 0%, 0%, 0.5);
+
+                left: 0;
+                backdrop-filter: blur(8px);
+                z-index: 999;
+            }
+
+            .popup {
+                background-color: #fff;
+                color: #b83558;
+                width: 60%;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                box-shadow: 0 2px 20px rgba(1, 41, 112, 0.1);
+                padding: 30px 20px;
+                font-size: 18px;
+                border-radius: 7px;
+            }
+
+            .categories {
+                text-align: center;
+            }
+
+            .categories a {
+                cursor: pointer;
+            }
+
+            .channels a {
+                cursor: pointer;
+            }
+
+            #no {
+                margin-top: 10px;
+            }
+
+            .btn-category {
+
+                margin-top: 10px;
+                background: #fff;
+                color: #000;
+                line-height: 3;
+                margin-right: 15px;
+                box-shadow: 0 0 11px 0.8px rgba(96, 94, 94, 0.13);
+                padding: 0.5vw 1.2vw;
+                border-radius: 10px;
+                white-space: nowrap;
+                overflow: hidden;
+
+            }
+
+            .loader {
+                border: 6px solid #f3f3f3;
+                /* Light grey */
+                border-top: 6px solid #33575C;
+                /* Blue */
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                position: fixed;
+                animation: spin 2s linear infinite;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .notification .badge {
+                position: absolute;
+
+                top: -1px;
+                left: 3.8em;
+                padding: 5px 8px;
+                border-radius: 50%;
+                background: #9D586C;
+                color: white;
+            }
+
+            .popup > * {
+                font-size: inherit;
+            }
+
+            .popup .detail-box h4 {
+                font-size: 19px;
+            }
+
+            .detail-box {
+                border-bottom: 2px solid #e0e0e0;
+            }
+
+            .input-cont {
+                padding-top: 10px;
+            }
+
+            .input-cont label:last-of-type {
+                margin-left: 20px;
+            }
+
+            textarea {
+                width: 100%;
+                margin-top: 15px;
+                outline: none;
+            }
+
+            form button {
+                margin-top: 15px;
+                outline: none;
+            }
+
+            form button:focus {
+                outline: none;
+            }
+
+            form {
+                text-align: right;
+            }
+
+            @media only screen and(max-width: 550px) {
+                .popup {
+                    width: 80%;
+                    font-size: 14px;
+                }
+
+                .btn-category {
+                    padding: 0.8vw 1.8vw;
+                }
+
+                .popup .detail-box h4 {
+                    font-size: 14px;
+                }
+            }
+
+            @media only screen and(max-width: 399px) {
+                .popup {
+                    width: 99%;
+                    font-size: 14px;
+                }
+
+                .btn-category {
+                    padding: 1.2vw 2.3vw;
+                }
+
+                .popup .detail-box h4 {
+                    font-size: 14px;
+                }
+
+                #prodImg {
+                    height: 30vh !important;
+
+                }
+
+                .row.justify-content-around button {
+                    margin-top: 20px;
+                }
+            }
+
+            @media only screen and(max-width: 575px) {
+                .row.justify-content-around h4 {
+                    margin-top: 20px;
+                }
+
+                .popup #product {
+                    text-align: right;
+                }
+            }
+
+            .navbar a {
+                justify-content: left;
+            }
+
+            .over {
+                position: absolute;
+                top: 50px;
+                left: calc(50% + 0px);
+                transform: translateX(-50%);
+                width: 100%;
+                max-width: 140px;
+                background-color: #fff;
+                border-radius: 7px;
+                box-shadow: 0 2px 20px rgba(1, 41, 112, 0.1);
+                padding: 10px;
+            }
+
+            .over p {
+                cursor: pointer;
+                font-size: 15px;
+            }
+
+            .over p:hover {
+                color: #b83558;
+            }
+
+            .animate {
+                opacity: 1;
+                transition: opacity 0.5s linear;
+                -webkit-transition: opacity 0.5s linear;
+            }
+
+            img {
+                opacity: 0;
+            }
+
+
+            @media only screen and(max-width: 991px) {
+                .over {
+                    left: calc(0% + 30px);
+                    transform: translateX(0%);
+                }
+            }
+
+            @media only screen and(max-width: 1107px) {
+                .payment {
+                    width: 45% !important;
+                }
+
+
+            }
+
+            @media only screen and(max-width: 860px) {
+                .payment {
+                    width: 55% !important;
+                }
+
+
+            }
+
+            @media only screen and(max-width: 706px) {
+                .payment {
+                    width: 70% !important;
+                }
+
+
+            }
+
+            @media only screen and(max-width: 560px) {
+                .payment {
+                    width: 99% !important;
+                }
+
+
+            }
+
+            @media only screen and(max-width: 399px) {
+                #channel-text {
+                    font-size: 5vw !important;
+                }
+
+
+            }
+
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            @media only screen and(max-width: 877px) {
+                .left-cart label {
+                    margin-bottom: 10px !important;
+                }
+            }
+
+            i.bi-trash-fill {
+                font-size: 20px;
+                margin: -7px 0 0 10px;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .over p a {
+                font-size: inherit;
+                color: inherit !important;
+                padding: 0;
+                font-weight: inherit !important;
+            }
+
+            body {
+                position: relative;
+            }
+
+            .alert {
+                height: 100px;
+                width: 350px;
+                background-color: #fff;
+                box-shadow: 0 2px 20px rgba(1, 41, 112, 0.1);
+                position: fixed;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 999999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: left;
+                color: #b83558;
+                font-size: 20px;
+            }
+
+            .hidden {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body onload="loggedIn(1); updateCartIcon(); loadProducts('fruits');">
+        <div class="alert alert1 hidden">
+            Payment gateway is loading..
+        </div>
+
+        <div class="alert alert2 hidden" style="text-align: center; width:35%; margin-top:30px">
+            Your account is under verification.<br>Kindly wait for our response.
+        </div>
+
+        <div class="alert alert3 hidden" style="text-align: center; width:40%; margin-top:30px">
+            Your account request has been declined.
+        </div>
+
+
+        <div class="loaderBox hidden d-flex justify-content-center align-items-center" style="width:100%; height:100%; position:fixed; z-index: 10000; margin-top:-7%!important;">
+            <div class="spinner-border text-primary"></div>
+
+        </div>
+
+
+        <!-- ======= Header ======= -->
+        <header id="header" class="header fixed-top">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+                <a href="/" class="logo d-flex align-items-center">
+                    <img style="opacity: 1 !important; width: 150px; max-height: none;" src="assets/img/Group 7.svg" alt=""/>
+                </a>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a class="nav-link scrollto" href="/">Home</a>
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto" href="/#about">About Us</a>
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto active" href="/products">Shop</a>
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-btn hidden">
+                            <a class="getstarted" href="/login">Log In</a>
+                        </li>
+                        <li class="nav-btn hidden">
+                            <a class="getstarted getstarted-ghost" href="/signup">Sign Up</a>
+                        </li>
+                        <li class="hidden cart-btn nav-btn logout" onclick="openCart()">
+                            <a class="notification" href="#">
+                                <i style="font-size: 25px; margin-right: 10px" class="bi bi-cart-fill"></i>
+                                <span id="badge" class="badge hidden">3</span>
+                                Cart</a>
+                        </li>
+                        <li style="position: relative; cursor: pointer" class="hidden nav-btn profile logout">
+                            <a class="profile-name">
+                                <i style="font-size: 25px; margin-right: 10px" class="bi bi-person-circle"></i>Profile</a>
+                            <div class="over hidden">
+                                <p style="margin-bottom: 0px; padding-bottom: 10px">
+                                    <a href="/orders">My Orders</a>
+                                </p>
+                                <p style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          margin-bottom: 10px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          padding-top: 10px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          border-top: 2px solid #d8d8d8;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ">
+                                    <a href="/reset">
+                                        Edit Password
+                                    </a>
+                                </p>
+                                <p style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            margin-bottom: 10px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            padding-top: 10px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            border-top: 2px solid #d8d8d8;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          " id="admin">
+                                    <a onclick="openAdmin()">Admin Panel
+                                    </a>
+
+                                </p>
+                                <p onclick="logout()" style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            margin-bottom: 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            padding-top: 10px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            border-top: 2px solid #d8d8d8;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ">
+                                    Log Out
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <main id="main">
+            <!-- ======= Breadcrumbs ======= -->
+
+            <!-- End Breadcrumbs -->
+
+                <section style="margin-top:70px;" id="gallery" class="gallery"> <div class="container overflow-hidden gy-4" data-aos="fade-up">
+                    <header class="section-header">
+                        <h2>Our Products</h2>
+                        <p>Providing the best.</p>
+                    </header>
+
+                    <div id="categories" class="categories justify-content-center">
+                        <a id="fruits" class="btn-category">Fruits</a>
+                        <a id="vegetables" class="btn-category">Vegetables</a>
+
+                        <a id="dry-fruits" class="btn-category">
+                            Dry Fruits</a>
+
+                        <a id="dairy" class="btn-category">Dairy</a>
+                    </div>
+
+                    <div class="loaderBox1  d-flex justify-content-center align-items-center" style="width:100%;  z-index: 10000; margin-top:7%;">
+                        <div class="spinner-border"></div>
+
+                    </div>
+                    <div id="products"></div>
+
+
+                </div>
+            </section>
+            <div class="hidden overlay"></div>
+            <div class="hidden popup cart">
+
+                <div style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        width: 100%;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        display: flex;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        text-align: right;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        font-weight: 500;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        margin-top: -20px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        justify-content: space-between;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        border-bottom: 2px solid #e0e0e0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      " class="">
+                    <div style="font-size: 25px; color: #603641; padding-bottom:5px;">My cart</div>
+                    <span class="cross" style="color: #000; cursor: pointer">
+                        &#10006;&#xFE0E;</span>
+                </div>
+                <div class="loaderBox2 hidden d-flex justify-content-center align-items-center" style="width:100%;  z-index: 10000; margin-top:1.5%;">
+                    <div class="spinner-border"></div>
+
+                </div>
+                <div class="detail-box cart-items" id="cart-items" style="padding-bottom: 15px"></div>
+                <div class="d-flex justify-content-between total-box" style="margin-top: 15px">
+                    <h5 style="color: #603641">Total</h5>
+                    <p class="final-total"></p>
+                </div>
+
+                <form id="cart-form">
+                    <div style="text-align: left; margin-bottom: 10px;" class="input-cont">
+                        <label for="home">Delivery at sales point</label>
+                        <input name="delivery" type="radio" id="home"/>
+                        <label for="pick">Pickup from booth</label>
+                        <input name="delivery" type="radio" id="pick" checked="checked"/>
+                    </div>
+
+                    <button style="font-size: 15px; padding: 5px 10px; font-weight: 500" class="payment" type="submit" class="btn btn-primary mx-auto">
+                        Check Out
+                    </button>
+                </form>
+            </div>
+            <!--Popup for order ends here-->
+            <div class="hidden popup add-to-cart">
+                <div style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        width: 100%;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        text-align: right;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        font-size: 30px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        margin-top: -20px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      " class="">
+                    <span class="cross" style="color: #000; cursor: pointer">
+                        &#10006;&#xFE0E;</span>
+                </div>
+                <div class="detail-box">
+                    <div style="margin-top:10px;" class="d-flex justify-content-between align-items-center">
+                        <h4>Product:</h4>
+                        <p id="product">King Coconut</p>
+                    </div>
+                </div>
+                <div style="border: none" class="detail-box">
+                    <div style="margin-top:10px;" class="d-flex justify-content-between align-items-center">
+                        <h4>Quantity:</h4>
+                        <p id="quantity">2 Bags (160 Pieces)</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4>Total Cost:</h4>
+                        <p id="total">₹ 20,000.00</p>
+                    </div>
+                </div>
+                <form>
+                    <button style="font-size: 15px; padding: 5px 10px; font-weight: 500" class="" type="submit" class="btn btn-primary mx-auto">
+                        Add to cart
+                    </button>
+                </form>
+            </div>
+
+
+            <div class="popup payment hidden" style="width: 35%; padding-bottom: 12px">
+                <div style="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          width: 100%;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          display: flex;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          text-align: right;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          font-weight: 500;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          margin-top: -20px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          justify-content: space-between;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          border-bottom: 2px solid #e0e0e0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        " class="">
+                    <div id="channel-text" style="font-size: 23px; color: #603641; padding-bottom:5px;">Choose a payment
+                                                                                                                                                                                                                                            channel
+                    </div>
+                    <span class="cross" style="color: #000; cursor: pointer; margin-top: 3px;">
+                        &#10006;&#xFE0E;</span>
+                </div>
+                <div class="d-flex justify-content-center align-items-center channels" style="margin-top:12px; flex-direction: column;">
+                    <button onclick="channel1()" style="font-size: 15px; padding: 5px 15px; font-weight: 500;" class="payment" type="submit" class="btn btn-primary mx-auto">
+                        Channel 1
+                    </button>
+                    <!-- <button onclick="channel2()" style="font-size: 15px; padding: 5px 15px; font-weight: 500; margin-left: 35px;" class="payment" type="submit"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="btn btn-primary mx-auto">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Channel 2
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </button> -->
+
+                    <!-- <a onclick="channel1()" class="logo d-flex justify-content-center" hidden>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="assets/img/paytm.png" alt="" style="opacity: 1; width:60%"/>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </a> -->
+
+                </div>
+            </form>
+        </div>
+        <!--Popup for order ends here-->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+                <header class="section-header">
+                    <h2>Contact</h2>
+                    <p>Contact Us</p>
+                </header>
+
+                <div class="row gy-4">
+                    <div class="col-lg-6">
+                        <div class="row gy-4">
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <h3>Address</h3>
+                                    <p>
+                                        IndiaMart Private Limited
+                                        <br/>
+                                        P-1307, Main Road No. 3<br/>Sector 46, Gurugram<br/>Haryana
+                                                                                                                                                                                                                                                                                                                                                                                                                122003
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bi bi-telephone"></i>
+                                    <h3>Call Us</h3>
+                                    <p>
+                                        +91 9310465254<br/>+91 99999999<br/>0124-444444
+                                        <br/>
+                                        <br/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bi bi-envelope"></i>
+                                    <h3>Email Us</h3>
+                                    <p>
+                                        info@IndiaMart.com<br/>contact@IndiaMart.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bi bi-clock"></i>
+                                    <h3>Open Hours</h3>
+                                    <p>Monday - Friday<br/>6:00AM - 11:59PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <form id="contact-form" class="php-email-form">
+                            <div class="row gy-4">
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control name" placeholder="Your Name" required/>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control email" name="email" placeholder="Your Email" required/>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control subject" name="subject" placeholder="Subject" required/>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control message" name="message" rows="6" placeholder="Message" required></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+
+                                    <div class="sent-message">
+                                        Your message has been sent. Thank you!
+                                    </div>
+
+                                    <button type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+</html></main><!-- End #main --><!-- ======= Footer ======= --><footer id="footer" class="footer">
+<div class="footer-newsletter">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 text-center">
+                <h4>Our Newsletter</h4>
+                <p>Enter your email to stay updated.</p>
+            </div>
+            <div class="col-lg-6">
+                <form>
+                    <input type="email" name="email"/><input type="submit" value="Subscribe"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-top">
+    <div class="container">
+        <div class="row gy-4 d-flex justify-content-between">
+            <div class="col-lg-5 col-md-12 footer-info">
+                <a href="/" class="logo d-flex align-items-center">
+                    <img style="opacity:1;" src="/assets/img/Group 7.svg" alt=""/>
+                </a>
+
+                <div class="social-links mt-3">
+                    <a href="#" class="twitter">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="#" class="facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#" class="instagram">
+                        <i class="bi bi-instagram bx bxl-instagram"></i>
+                    </a>
+                    <a href="#" class="linkedin">
+                        <i class="bi bi-linkedin bx bxl-linkedin"></i>
+                    </a>
+
+                </div>
+                <br/>
+                <div class="creds">
+                    <span style="color: #b67c8d">
+                        <strong>GSTIN :</strong>
+                        06AAECL3163C1ZX<br/>
+                        <strong>CIN :</strong>
+                        U22219HR2020PTC088723<br/>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li>
+                        <i class="bi bi-chevron-right"></i>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <i class="bi bi-chevron-right"></i>
+                        <a href="/#about">About Us</a>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-chevron-right"></i>
+                        <a href="/products">Shop</a>
+                    </li>
+                    <li>
+                        <i class="bi bi-chevron-right"></i>
+                        <a href="/policy#terms">Terms of service</a>
+                    </li>
+                    <li>
+                        <i class="bi bi-chevron-right"></i>
+                        <a href="/policy#privacy">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <i class="bi bi-chevron-right"></i>
+                        <a href="/policy#refund">Refund Policy</a>
+                    </li>
+                    <li>
+                        <i class="bi bi-chevron-right"></i>
+                        <a href="/policy#shipping">Shipping Policy</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                <h4>Contact Us</h4>
+                <p>
+                    IndiaMart Private Limited
+                    <br/>
+                    P-1307, Main Road No. 3<br/>Sector 46, Gurugram<br/>Haryana
+                                                                                                                                                                                                            122003<br/>
+                    <strong>Phone:</strong>
+                    +91 9711921414
+                    <br/>
+                    <strong>Email:</strong>
+                    info@IndiaMart.com<br/>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="copyright">
+        &copy; Copyright
+        <strong>
+            <span>IndiaMart</span>
+        </strong>. All Rights Reserved
+    </div>
+</div></footer><!-- End Footer --><a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+<i class="bi bi-arrow-up-short"></i></a><!-- Vendor JS Files --><script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script><script src="assets/vendor/aos/aos.js"></script><script src="assets/vendor/swiper/swiper-bundle.min.js"></script><script src="assets/vendor/purecounter/purecounter.js"></script><script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script><script src="assets/vendor/glightbox/js/glightbox.min.js"></script><!-- Template Main JS File --><script src="assets/js/main.js"></script><!-- The core Firebase JS SDK is always required and must be listed first --><script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script><script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script><script src="https://checkout.razorpay.com/v1/checkout.js"></script><script>
+// Your web app's Firebase configuration
+firebaseConfig = {
+    apiKey: "AIzaSyCW9zeRj5bo-ESmxfEDD1y3FvdKgS2Vngc",
+    authDomain: "india-mart-5d953.firebaseapp.com",
+    projectId: "india-mart-5d953",
+    storageBucket: "india-mart-5d953.appspot.com",
+    messagingSenderId: "359542252381",
+    appId: "1:359542252381:web:7a02ecce32ee548b5c7eb4",
+    measurementId: "G-2G8FY6NRWE"
+  };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+// updating
+db.settings({timestampsInSnapshots: true});
+firebase.firestore().enablePersistence();
+
+var userData = {};
+document.getElementById('categories').style.pointerEvents = 'none';</script><script src="/assets/js/auth.js"></script><script>
+
+
+var currentId = "";
+var products;
+var cat = document.getElementById("categories");
+cat.addEventListener("click", function (e) {
+
+    if (e.target.id != "categories") {
+        if (currentId != e.target.id) 
+            loadProducts(e.target.id);
+        
+
+
+    }
+});
+
+$("#cart-form").submit(function (e) {
+    e.preventDefault();
+
+    const totAmount = Number(document.querySelector(".final-total").innerHTML.slice(2));
+
+    if (totAmount > 0) {
+        document.querySelector('.loaderBox').classList.remove('hidden');
+
+        const deliveryType = document.querySelector("#home").checked;
+
+        var items = [];
+        var orderId = `ORD_${
+            new Date().getTime()
+        }`;
+        var temp = {};
+        cartData.forEach(function (x) {
+            items.push({pName: x.name, cost: x.total, quantity: x.qty});
+        });
+        let indianDate = convertTZ(new Date(), "Asia/Calcutta");
+        let date;
+        let month = indianDate.getMonth() + 1;
+        if (month < 10) 
+            date = indianDate.getFullYear() + "/0" + month + "/" + indianDate.getDate();
+         else if (month < 10 && indianDate.getDate() < 10) 
+            date = indianDate.getFullYear() + "/0" + month + "/0" + indianDate.getDate();
+         else if (indianDate.getDate() < 10) 
+            date = indianDate.getFullYear() + "/" + month + "/0" + indianDate.getDate();
+         else 
+            date = indianDate.getFullYear() + "/" + month + "/" + indianDate.getDate();
+        
+
+
+        console.log(date)
+
+        if (deliveryType) {
+            const address = "At sales point";
+            temp = {
+                orderId: orderId,
+                date: date.split("/").reverse().join("/"),
+                items: items,
+                address: address
+            };
+        } else {
+            temp = {
+                orderId: orderId,
+                date: date.split("/").reverse().join("/"),
+                items: items,
+                address: ""
+            };
+        } db.collection("users").doc(auth.currentUser.uid).update({temp: temp}).then(() => {
+            document.querySelector('.loaderBox').classList.add('hidden');
+
+            document.querySelector('.popup.cart').classList.add('hidden');
+            document.querySelector('.popup.payment').classList.remove('hidden');
+        });
+    }
+
+});
+
+
+async function loadProducts(id) {
+
+    $("#products").empty();
+    document.querySelector('.loaderBox1').classList.remove('hidden');
+    document.getElementById('categories').style.pointerEvents = 'none';
+
+
+    const res = await fetch('/allProducts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {id: id}
+        )
+    });
+    let docArray = await res.json();
+    currentId = id;
+    document.getElementById('categories').style.pointerEvents = 'auto';
+    document.querySelector('.loaderBox1').classList.add('hidden');
+    var n = -1;
+    products = docArray.products;
+
+    products.forEach(function (x) {
+        n += 1;
+        if (id == "coconuts") {
+            $("#products").append(`
+
+          <div class="row justify-content-around"  data-aos="fade-up">
+    <div class="col-12 col-md-4 col-lg-5 d-flex justify-content-center mb-sm-3 mb-xs-5" style="overflow: hidden">
+      <img id="prodImg" onload="this.className='animate'"  src="` + x.img + `" style="width: 100%; height: 40vh;
+object-fit: cover; border-radius:8px" alt="" />
+    </div>
+    <div class="col-12 col-md-8 col-lg-6 d-flex flex-column justify-content-center right-text">
+      <h4 style="color: #172B3B">` + x.name + `</h4>
+      <p style="font-size: 14px">
+        ` + x.desc + `
+      </p>
+      <div class="info">
+        <h6 style="color: #33575C">&#8377; ` + x.cost + `.00 / ` + x.unit + `</h6>
+        <p style="color: #33575C; font-size: 13px">
+          Minimum Order Quantity : ` + x.minQty + ` pieces (1 bag)
+        </p>
+      </div>
+      <div  class="quantity d-flex flex-wrap align-items-center">
+        <label class="" for="quantity-one">Quantity:</label>
+        <input id="qty` + n + `" oninput="bagch(this,` + n + `)" style="background:#EBEBEB; border-color:#EBEBEB; padding-top:6px; padding-bottom:6px; border-radius: 6px; margin: 0 10px 0 30px;" class="" type="number" min="1" value="1"
+         />
+        <p id="bg` + n + `" style="margin: 0 40px 0 0; min-width: 40px">bag</p>
+        <button style="font-size: 15px; padding: 5px 10px; font-weight: 500" type="submit"
+          class="btn btn-primary buy-now" onclick="showpop1(` + n + `)">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+    `);
+
+        } else if (id == 'plant') {
+
+            $("#products").append(`
+
+<div class="row justify-content-around"  data-aos="fade-up">
+<div  class="col-12 col-md-4 col-lg-5 d-flex justify-content-center mb-sm-3 mb-xs-5" style="overflow: hidden">
+<img id="prodImg" onload="this.className='animate'"  src="` + x.img + `" style="border-radius:8px; height: 40vh;
+object-fit: cover;" alt="" />
+</div>
+<div class="col-12 col-md-8 col-lg-6 d-flex flex-column justify-content-center right-text">
+<h4 style="color: #172B3B">` + x.name + `</h4>
+<p style="font-size: 14px">
+` + x.desc + `
+</p>
+<div class="info">
+<h6 style="color: #33575C">&#8377; ` + x.cost + `.00 / ` + x.unit + `</h6>
+<p style="color: #33575C; font-size: 13px">
+Minimum Order Quantity : ` + x.minQty + ` units 
+</p>
+</div>
+<div  class="quantity d-flex flex-wrap align-items-center">
+<label class="" for="quantity-one">Quantity:</label>
+<input oninput="amtQty1(this,` + n + `,` + x.cost + `)" id="qty` + n + `"  style="background:#EBEBEB; border-color:#EBEBEB; padding-top:6px; padding-bottom:6px; border-radius: 6px; margin: 0 10px 0 30px;  width:90px;" class="" type="number" min="1" value="` + x.minQty + `"
+/>
+<p style="margin: 0 40px 0 0; min-width: 40px">units</p>
+<button onclick="showpop2(` + n + `)" style="font-size: 15px; padding: 5px 10px; font-weight: 500" type="submit"
+class="btn btn-primary buy-now">
+Buy Now
+</button>
+</div>
+</div>
+</div>
+`);
+
+
+        } else {
+            $("#products").append(`
+
+          <div class="row justify-content-around"  data-aos="fade-up">
+    <div class="col-12 col-md-4 col-lg-5 d-flex justify-content-center mb-sm-3 mb-xs-5" style=" overflow: hidden; ">
+      <img id="prodImg"onload="this.className='animate'"  src="` + x.img + `" style="max-width:100%; width: 100%; height: 40vh;
+object-fit: cover; border-radius:8px;" alt="" />
+    </div>
+    <div class="col-12 col-md-8 col-lg-6 d-flex flex-column justify-content-center right-text">
+      <h4 style="color: #172B3B">` + x.name + `</h4>
+      <p style="font-size: 14px">
+        ` + x.desc + `
+      </p>
+      <div class="info">
+        <h6 style="color: #33575C">&#8377; ` + x.cost + `.00 / ` + x.unit + `</h6>
+        <p style="color: #33575C; font-size: 13px">
+          Minimum Order Quantity : ` + x.minQty + ` ` + x.unit + ` 
+        </p>
+      </div>
+      <div class="amount d-flex flex-wrap align-items-center">
+      <label class="" for="amt">Amount (&#8377;):</label>
+        <input id="amt` + n + `" oninput="amtQty(this,` + n + `,` + x.cost + `)" style="background:#EBEBEB; border-color:#EBEBEB; padding-top:6px; padding-bottom:6px; border-radius: 6px; margin: 0 10px 0 30px; width: 90px;" class="" type="number" min="1" value="` + Number(x.cost) * Number(x.minQty) + `"
+           />
+        </div>
+      <div style="margin-top:10px;" class="quantity d-flex flex-wrap align-items-center">
+        <label class="" for="quantity-one">Quantity:</label>
+        <input oninput="amtQty1(this,` + n + `,` + x.cost + `)" id="qty` + n + `"  style="background:#EBEBEB; border-color:#EBEBEB; padding-top:6px; padding-bottom:6px; border-radius: 6px; margin: 0 10px 0 30px;  width:90px;" class="" type="number" min="1" value="` + x.minQty + `"
+         />
+        <p style="margin: 0 40px 0 0; min-width: 40px">` + x.unit + `</p>
+        <button style="font-size: 15px; padding: 5px 10px; font-weight: 500" type="submit"
+          class="btn btn-primary buy-now" onclick="showpop(` + n + `)">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+    `);
+        }
+
+
+    });
+}</script><script>
+
+function fadeIn(obj) {}
+
+function amtQty(amtInput, n, price) {
+
+    var input2 = document.getElementById("qty" + n);
+    var finalQty = Number(amtInput.value) / Number(price);
+    input2.value = Math.round(finalQty * 1000) / 1000;
+
+}
+
+function amtQty1(amtInput, n, price) {
+
+    var input2 = document.getElementById("amt" + n);
+    var finalQty = Number(amtInput.value) * Number(price);
+    input2.value = Math.round(finalQty * 1000) / 1000;
+
+}
+
+function bagch(qty, n) {
+    var bagtxt = document.getElementById("bg" + n);
+    if (qty.value == 1) 
+        bagtxt.innerHTML = "Bag";
+     else if (qty.value > 1) 
+        bagtxt.innerHTML = "Bags";
+    
+
+
+}
+function showpop2(n) {
+    if (auth.currentUser) {
+        popup.classList.remove("hidden");
+        document.querySelector(".overlay").classList.remove("hidden");
+        popup.querySelector("#product").innerHTML = products[n].name;
+        if (document.getElementById("qty" + n).value == 1) 
+            popup.querySelector("#quantity").innerHTML = document.getElementById("qty" + n).value + " unit";
+         else 
+            popup.querySelector("#quantity").innerHTML = document.getElementById("qty" + n).value + " units";
+         popup.querySelector("#total").innerHTML = "₹ " + document.getElementById("qty" + n).value * products[n].cost;
+
+    } else {
+        alert("Log in to buy products");
+        window.location = "/login";
+    }
+
+}
+
+function showpop1(n) {
+    if (auth.currentUser) {
+        popup.classList.remove("hidden");
+        document.querySelector(".overlay").classList.remove("hidden");
+        popup.querySelector("#product").innerHTML = products[n].name;
+        if (document.getElementById("qty" + n).value == 1) 
+            popup.querySelector("#quantity").innerHTML = document.getElementById("qty" + n).value + " bag";
+         else 
+            popup.querySelector("#quantity").innerHTML = document.getElementById("qty" + n).value + " bags";
+         popup.querySelector("#total").innerHTML = "₹ " + document.getElementById("qty" + n).value * 10000;
+
+    } else {
+        alert("Log in to buy products");
+        window.location = "/login";
+    }
+
+}
+
+function openAdmin() {
+    window.location = '/admin?uid=' + auth.currentUser.uid;
+
+}
+
+function showpop(n) {
+    if (auth.currentUser) {
+        if (userData.status == "verified") {
+            popup.classList.remove("hidden");
+            document.querySelector(".overlay").classList.remove("hidden");
+            popup.querySelector("#product").innerHTML = products[n].name;
+
+            popup.querySelector("#quantity").innerHTML = document.getElementById("qty" + n).value + " kg";
+            popup.querySelector("#total").innerHTML = "₹ " + document.getElementById("amt" + n).value;
+        } else {
+            alert("Access Denied");
+
+
+        }
+    } else {
+        alert("Log in to buy products");
+        window.location = "/login";
+    }
+
+}
+
+const profile = document.querySelector(".profile");
+profile.addEventListener("click", (e) => {
+    document.querySelector(".over").classList.toggle("hidden");
+    // console.log("hello");
+    e.stopPropagation();
+});
+document.addEventListener("click", (e) => {
+    document.querySelector(".over").classList.add("hidden");
+});
+
+const btns = document.querySelectorAll(".btn");
+const popup = document.querySelector(".popup.add-to-cart");
+let amount;
+
+
+function updateCartIcon() {
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            db.collection("users").doc(user.uid).get().then((doc) => {
+                let cart = doc.data().cart;
+
+                if (cart.length == 0) 
+                    document.getElementById("badge").classList.add("hidden");
+                 else {
+                    document.getElementById("badge").classList.remove("hidden");
+                    document.getElementById("badge").innerHTML = cart.length;
+                }
+            });
+        }
+    });
+
+}
+const addBtn = popup.querySelector("button");
+addBtn.addEventListener("click", (ev) => {
+    popup.classList.add("hidden");
+    overlay.classList.add("hidden");
+    db.collection("users").doc(auth.currentUser.uid).get().then((doc) => {
+        let cart = doc.data().cart;
+
+        const parentCart = ev.target.parentNode.parentNode;
+
+        var qty = parentCart.querySelector("#quantity").innerHTML.split(" ");
+        var tot = parentCart.querySelector("#total").innerHTML.split(" ");
+        var name = parentCart.querySelector("#product").innerHTML;
+        var check = false;
+        var index;
+
+        if (cart.length == 0) {
+            cart.push({
+                "name": name,
+                "qty": Number(qty[0]),
+                "total": Number(tot[tot.length - 1])
+            });
+        } else {
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].name == name) {
+                    check = true;
+                    index = i;
+                    break;
+
+                }
+            }
+            if (check == true) {
+                console.log("lodu");
+
+                var nqt = Number(cart[index].qty) + Number(qty[0]);
+                var ntot = Number(cart[index].total) + Number(tot[tot.length - 1]);
+                cart.splice(index, 1);
+                cart.push({"name": name, "qty": nqt, "total": ntot});
+            } else {
+                console.log("lodu1");
+
+                cart.push({
+                    "name": name,
+                    "qty": Number(qty[0]),
+                    "total": Number(tot[tot.length - 1])
+                });
+            }
+        } db.collection("users").doc(auth.currentUser.uid).update({cart: cart}).then(() => {
+            updateCartIcon();
+        });
+
+        ev.stopPropagation();
+
+    });
+    window.alert("Item has been added to the cart.");
+
+    ev.stopPropagation();
+    ev.preventDefault();
+});
+
+const crosses = [...document.querySelectorAll(".cross")];
+crosses.forEach((cross) => {
+    cross.addEventListener("click", (e) => {
+        e.target.parentNode.parentNode.classList.add("hidden");
+        updateCartIcon();
+        overlay.classList.add("hidden");
+    });
+});</script><script src="/assets/js/cart.js"></script><script>
+
+function channel1() {
+    const alert = document.querySelector(".alert");
+    alert.classList.remove("hidden");
+    setTimeout(() => {
+        alert.classList.add("hidden");
+    }, 5000);
+
+    const totAmount = Number(document.querySelector(".final-total").innerHTML.slice(2));
+
+    const deliveryType = document.querySelector("#home").checked;
+
+    var items = [];
+
+    cartData.forEach(function (x) {
+        items.push({pName: x.name, cost: x.total, quantity: x.qty});
+
+    });
+
+    const custId = auth.currentUser.uid;
+    var orderId = `ORD_${
+        new Date().getTime()
+    }`;
+    let indianDate = convertTZ(new Date(), "Asia/Calcutta");
+    let date;
+    let month = indianDate.getMonth() + 1;
+    if (month < 10) 
+        date = indianDate.getFullYear() + "/0" + month + "/" + indianDate.getDate();
+     else if (month < 10 && indianDate.getDate() < 10) 
+        date = indianDate.getFullYear() + "/0" + month + "/0" + indianDate.getDate();
+     else if (indianDate.getDate() < 10) 
+        date = indianDate.getFullYear() + "/" + month + "/0" + indianDate.getDate();
+     else 
+        date = indianDate.getFullYear() + "/" + month + "/" + indianDate.getDate();
+     db.collection("users").doc(auth.currentUser.uid).get().then((doc) => {
+        let orders = doc.data().orders;
+        if (deliveryType) {
+            const address = "At sales point"
+            orders.unshift({orderId: orderId, date: date.split("/").reverse().join("/"), items: items, address: address});
+        } else {
+            orders.unshift({orderId: orderId, date: date.split("/").reverse().join("/"), items: items, address: ""});
+        }
+
+        const cart = [];
+
+        db.collection("users").doc(auth.currentUser.uid).update({cart: cart, orders: orders}).then(() => {
+            db.collection("transactions").doc("all").update({
+                orders: firebase.firestore.FieldValue.arrayUnion(
+                    {
+                        orderId: orderId,
+                        date: date.split("/").reverse().join("/"),
+                        items: items,
+                        user: doc.data().name,
+                        uid: doc.id
+                    }
+                )
+            }).then(() => {
+                console.table("orders updated");
+                window.location = "/success";
+            });
+
+        });
+    });
+
+
+}</script><script>
+function convertTZ(date, tzString) {
+    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));
+}
+
+
+document.getElementById('admin').classList.add('hidden');
+document.querySelector('.sent-message').classList.add('hidden');
+document.getElementById("contact-form").addEventListener('submit', function (event) {
+
+    event.preventDefault();
+    db.collection('contactus').doc('queries').get().then((doc) => {
+        let data = doc.data();
+        data.queries.unshift({
+            name: document.querySelector('.name').value,
+            email: document.querySelector('.email').value,
+            subject: document.querySelector('.subject').value,
+            message: document.querySelector('.message').value,
+            status: "pending"
+        });
+
+        db.collection('contactus').doc('queries').update({queries: data.queries}).then(() => {
+            document.querySelector('.sent-message').classList.remove('hidden');
+            document.querySelector('.name').value = "";
+            document.querySelector('.email').value = "";
+            document.querySelector('.message').value = "";
+            document.querySelector('.subject').value = "";
+
+        });
+    });
+
+});</script></body></html>

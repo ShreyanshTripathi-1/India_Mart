@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>IndiaMart | SignUp</title>
+    <meta content="" name="description" />
+
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/logowt.svg" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body onload="signup()">
+    <section class="hero auth signup">
+      <div class="container-fluid row justify-content-end">
+        <div
+          class="logo col-lg-4 col-12"
+          style="text-align: right; z-index: 9999999"
+        >
+          <a href="/"><img src="/assets/img/Group 7.svg" alt="" /></a>
+        </div>
+        <div class="row container-fluid">
+          <div class="col-12 row position" style="margin-top: -50px">
+            <header class="section-header mb-4">
+              <p style="text-align: left; font-weight: 500">Sign Up</p>
+            </header>
+            <form
+              class="login-signup create col-12 col-lg-7 col-md-12 row row-cols-1 row-cols-lg-2 row-cols-md-2"
+            >
+              <div class="mb-4 input-cont">
+                <input
+                  required
+                  type="text"
+                  class=""
+                  id="name"
+                  placeholder="Full Name *"
+                  aria-describedby="useridHelp"
+                />
+                <i class="bi bi-person-fill"></i>
+                <div id="useridHelp" class="form-text form-err hidden">
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+              <div class="mb-4 input-cont">
+                <input
+                  required
+                  type="email"
+                  class=""
+                  id="email"
+                  placeholder="Email Id *"
+                  aria-describedby="useridHelp"
+                />
+                <i class="bi bi-envelope-fill"></i>
+                <div id="emailerr" class="form-text form-err hidden"></div>
+              </div>
+              <div class="mb-4 input-cont">
+                <input
+                  required
+                  type="number"
+                  class=""
+                  id="mobile"
+                  placeholder="Mobile number *"
+                  aria-describedby="useridHelp"
+                />
+                <i class="bi bi-telephone-fill"></i>
+                <div id="useridHelp" class="form-text form-err hidden">
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+              <div class="mb-4 input-cont">
+                <input
+                  required
+                  type="password"
+                  class=""
+                  id="password"
+                  placeholder="Password *"
+                  aria-describedby="useridHelp"
+                />
+                <i class="bi bi-lock-fill"></i>
+                <div id="useridHelp" class="form-text form-err hidden">
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+
+              <div class="mt-4 d-flex col-12 col-lg-12 justify-content-start">
+                <button
+                  style="font-weight: 500"
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                  Sign Up
+                </button>
+              </div>
+            </form>
+            <div
+              class="right col-12 col-lg-5 col-md-12 d-flex justify-content-lg-end align-items-lg-end"
+            >
+              <header class="section-header call mb-4">
+                <p style="font-weight: 500" class="d-flex col-12">
+                  Already a<br />
+                  member?
+                </p>
+                <div
+                  class="container d-flex justify-content-left justify-content-lg-end mt-3"
+                >
+                  <a style="font-weight: 500" href="/login">
+                    <div class="btn call" style="font-weight: 500">Sign In</div>
+                  </a>
+                </div>
+              </header>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--====== Vendor JS ======-->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCW9zeRj5bo-ESmxfEDD1y3FvdKgS2Vngc",
+        authDomain: "india-mart-5d953.firebaseapp.com",
+        projectId: "india-mart-5d953",
+        storageBucket: "india-mart-5d953.appspot.com",
+        messagingSenderId: "359542252381",
+        appId: "1:359542252381:web:7a02ecce32ee548b5c7eb4",
+        measurementId: "G-2G8FY6NRWE",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      // updating
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="/assets/js/auth.js"></script>
+  </body>
+</html>

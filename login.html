@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>IndiaMart | LogIn</title>
+    <meta content="" name="description" />
+
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/logowt.svg" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body onload="login();">
+    <section class="hero auth">
+      <div class="container-fluid row">
+        <div class="logo col-lg-4 col-12">
+          <a href="/"><img src="/assets/img/Group 7.svg" alt="" /></a>
+        </div>
+      </div>
+      <div class="row container-fluid justify-content-end">
+        <div class="col-12 col-lg-6 col-md-7 row d-flex justify-content-center">
+          <header class="section-header mb-4">
+            <p style="font-weight: 500">Sign In</p>
+          </header>
+          <form class="login-signup login col-12 col-lg-8 col-md-8 mx-auto">
+            <div class="mb-4 input-cont">
+              <input
+                required
+                type="email"
+                class=""
+                id="email"
+                placeholder="Email"
+                aria-describedby="useridHelp"
+              />
+              <i class="bi bi-person-fill"></i>
+              <div id="emailHelp" class="form-text form-err hidden"></div>
+            </div>
+            <div class="mb-4 input-cont">
+              <input
+                required
+                type="password"
+                class=""
+                id="password"
+                placeholder="Password"
+              />
+              <i class="bi bi-lock-fill"></i>
+              <div id="passHelp" class="form-text form-err hidden"></div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <a href="/reset"> Forgot Password? </a>
+            </div>
+            <div class="mt-3 d-flex justify-content-center">
+              <button
+                style="font-weight: 500"
+                type="submit"
+                class="btn btn-primary mx-auto"
+              >
+                Log In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-6 col-12 col-lg-6 col-md-7">
+          <header class="section-header call mb-4">
+            <p style="font-weight: 500">
+              Not a<br />
+              member yet?
+            </p>
+          </header>
+          <a href="/signup">
+            <div style="font-weight: 500" class="btn call">Sign Up</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!--====== Vendor JS ======-->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+                             https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCW9zeRj5bo-ESmxfEDD1y3FvdKgS2Vngc",
+        authDomain: "india-mart-5d953.firebaseapp.com",
+        projectId: "india-mart-5d953",
+        storageBucket: "india-mart-5d953.appspot.com",
+        messagingSenderId: "359542252381",
+        appId: "1:359542252381:web:7a02ecce32ee548b5c7eb4",
+        measurementId: "G-2G8FY6NRWE",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      // updating
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="/assets/js/auth.js"></script>
+  </body>
+</html>

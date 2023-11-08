@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IndiaMart | Orders</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Favicons -->
+    <link href="assets/img/logowt.svg" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- <script
+                              type="application/javascript"
+                              src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/xbljRR36823431728033.js"
+                              crossorigin="anonymous"
+                            ></script> -->
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+      .navbar a {
+        justify-content: left;
+      }
+
+      .over {
+        position: absolute;
+        top: 50px;
+        left: calc(50% + 0px);
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 140px;
+        background-color: #fff;
+        border-radius: 7px;
+        box-shadow: 0 2px 20px rgba(1, 41, 112, 0.1);
+        padding: 10px;
+      }
+
+      .over p {
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      .over p a {
+        font-size: inherit;
+        color: inherit !important;
+        padding: 0;
+        font-weight: inherit !important;
+      }
+
+      .over p:hover {
+        color: #b83558;
+      }
+
+      @media only screen and(max-width: 991px) {
+        .over {
+          left: calc(0% + 30px);
+          transform: translateX(0%);
+        }
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .orders-head {
+        padding: 15px 0;
+        border-bottom: 2px solid #ccc;
+      }
+
+      .orders-items {
+        padding: 15px 0 0;
+        border-bottom: 2px solid #ccc;
+      }
+
+      .king p {
+        margin-bottom: 0;
+      }
+
+      .left-head h4 {
+        color: #000e50;
+        display: inline-block;
+      }
+
+      .invoice {
+        color: #33575c;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .orders-cont .right-head h4 {
+        color: #172b3b;
+        display: inline-block;
+        width: 150px;
+        text-align: center;
+      }
+      .orders-items .right-item p {
+        display: inline-block;
+        width: 150px;
+        text-align: center;
+      }
+
+      @media only screen and(max-width: 894px) {
+        .orders-cont .right-head h4 {
+          width: 100px !important;
+        }
+        .orders-items .right-item p {
+          width: 100px !important;
+        }
+      }
+      @media only screen and(max-width: 764px) {
+        .orders-cont h4 {
+          font-size: 17px;
+        }
+        .orders-items p {
+          font-size: 13px;
+        }
+      }
+      @media only screen and(max-width: 510px) {
+        body,
+        main,
+        section {
+          overflow-x: visible;
+        }
+
+        div.gy-4 {
+          padding: 0 10px;
+        }
+      }
+
+      .invisible {
+        opacity: 0;
+        pointer-events: none;
+      }
+      body {
+        position: relative;
+      }
+
+      .alert {
+        height: 150px;
+        width: 350px;
+        background-color: #fff;
+        box-shadow: 0 2px 20px rgba(1, 41, 112, 0.1);
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #b83558;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body onload="loggedIn()">
+    <div class="alert hidden">Your invoice will be downloaded shortly.</div>
+    <header id="header" class="header fixed-top">
+      <div
+        class="container-fluid container-xl d-flex align-items-center justify-content-between"
+      >
+        <a href="/" class="logo d-flex align-items-center">
+          <img src="/assets/img/Group 7.svg" alt="" />
+        </a>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="/">Home</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/#about">About Us</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/products">Shop</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/#contact">Contact</a>
+            </li>
+            <li class="nav-btn hidden">
+              <a class="getstarted" href="/login">Log In</a>
+            </li>
+            <li class="nav-btn hidden">
+              <a class="getstarted getstarted-ghost" href="/signup">Sign Up</a>
+            </li>
+
+            <li
+              style="position: relative; cursor: pointer"
+              class="hidden nav-btn profile logout"
+            >
+              <a class="profile-name">
+                <i
+                  style="font-size: 25px; margin-right: 10px"
+                  class="bi bi-person-circle"
+                ></i
+                >Profile</a
+              >
+              <div class="over hidden">
+                <p style="margin-bottom: 0px; padding-bottom: 10px">
+                  <a href="/orders">My Orders</a>
+                </p>
+                <p
+                  style="
+                    margin-bottom: 10px;
+                    padding-top: 10px;
+                    border-top: 2px solid #d8d8d8;
+                  "
+                >
+                  <a href="/reset"> Edit Password </a>
+                </p>
+                <p
+                  style="
+                    margin-bottom: 10px;
+                    padding-top: 10px;
+                    border-top: 2px solid #d8d8d8;
+                  "
+                  id="admin"
+                >
+                  <a onclick="openAdmin()">Admin Panel </a>
+                </p>
+                <p
+                  onclick="logout()"
+                  style="
+                    margin-bottom: 0;
+                    padding-top: 10px;
+                    border-top: 2px solid #d8d8d8;
+                  "
+                >
+                  Log Out
+                </p>
+              </div>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main" style="padding: 50px 0">
+      <section style="min-height: 80vh" id="gallery" class="gallery">
+        <div
+          class="gy-4"
+          data-aos="fade-up"
+          style="width: 90%; margin: 10px auto; min-width: 504px"
+        >
+          <header class="section-header">
+            <p style="text-align: left">My orders.</p>
+          </header>
+          <div class="orders-cont d-flex flex-column flex-nowrap">
+            <div class="orders-head d-flex flex-nowrap justify-content-between">
+              <div class="left-head">
+                <h4 style="text-align: left">Products</h4>
+              </div>
+              <div class="right-head d-flex flex-nowrap">
+                <h4>Quantity</h4>
+                <h4>Date</h4>
+                <h4>Time</h4>
+                <h4>Amount</h4>
+                <h4>Invoice</h4>
+              </div>
+            </div>
+            <div id="orders"></div>
+            <!-- <div class="orders-items d-flex flex-column flex-nowrap">
+                                                                                      <div
+                                                                                        class="west-coast d-flex flex-nowrap justify-content-between"
+                                                                                      >
+                                                                                        <div class="left-item">
+                                                                                          <p id="pName" style="text-align: left">
+                                                                                            West Coast Tall Coconuts
+                                                                                          </p>
+                                                                                        </div>
+                                                                                        <div class="right-item d-flex flex-nowrap">
+                                                                                          <p id="qty">2</p>
+                                                                                          <p id="date">26/05/2021</p>
+                                                                                          <p id="price">2000</p>
+                                                                                          <p id="invoice">Download Invoice</p>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                      <div class="king d-flex flex-nowrap justify-content-between">
+                                                                                        <div class="left-item">
+                                                                                          <p id="pName" style="text-align: left">King Coconuts</p>
+                                                                                        </div>
+                                                                                        <div class="right-item d-flex flex-nowrap">
+                                                                                          <p id="qty">2</p>
+                                                                                          <p id="date">26/05/2021</p>
+                                                                                          <p id="price">2000</p>
+                                                                                          <p id="invoice">Download Invoice</p>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="orders-items d-flex flex-column flex-nowrap">
+                                                                                      <div
+                                                                                        class="king d-flex flex-nowrap justify-content-between align-items-center"
+                                                                                      >
+                                                                                        <div class="left-item">
+                                                                                          <p id="pName" style="text-align: left">King Coconuts</p>
+                                                                                        </div>
+                                                                                        <div class="right-item d-flex flex-nowrap">
+                                                                                          <p id="qty">2</p>
+                                                                                          <p id="date">26/05/2021</p>
+                                                                                          <p id="price">2000</p>
+                                                                                          <p id="invoice">Download Invoice</p>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                    </div> -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <a id="jusNull" href="/download" hidden></a>
+
+    <footer id="footer" class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4 d-flex justify-content-between">
+            <div class="col-lg-5 col-md-12 footer-info">
+              <a href="/" class="logo d-flex align-items-center">
+                <img src="/assets/img/Group 7.svg" alt="" />
+              </a>
+
+              <div class="social-links mt-3">
+                <a href="#" class="twitter">
+                  <i class="bi bi-twitter"></i>
+                </a>
+                <a href="#" class="facebook">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="instagram">
+                  <i class="bi bi-instagram bx bxl-instagram"></i>
+                </a>
+                <a href="#" class="linkedin">
+                  <i class="bi bi-linkedin bx bxl-linkedin"></i>
+                </a>
+              </div>
+              <br />
+              <div class="creds">
+                <span style="color: #b67c8d">
+                  <strong>GSTIN :</strong>
+                  06AAECL3163C1ZX<br />
+                  <strong>CIN :</strong>
+                  U22219HR2020PTC088723<br />
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/#about">About Us</a>
+                </li>
+
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/products">Shop</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/policy#terms">Terms of service</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/policy#privacy">Privacy Policy</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/policy#refund">Refund Policy</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/policy#shipping">Shipping Policy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
+            >
+              <h4>Contact Us</h4>
+              <p>
+                IndiaMart Solutions Private Limited
+                <br />
+                P-1307, Main Road No. 3<br />Sector 46, Gurugram<br />Haryana
+                122003<br />
+                <strong>Phone:</strong>
+                +91 9711921414
+                <br />
+                <strong>Email:</strong>
+                info@IndiaMart.com<br />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright
+          <strong>
+            <span>IndiaMart</span> </strong
+          >. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+                               https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCW9zeRj5bo-ESmxfEDD1y3FvdKgS2Vngc",
+        authDomain: "india-mart-5d953.firebaseapp.com",
+        projectId: "india-mart-5d953",
+        storageBucket: "india-mart-5d953.appspot.com",
+        messagingSenderId: "359542252381",
+        appId: "1:359542252381:web:7a02ecce32ee548b5c7eb4",
+        measurementId: "G-2G8FY6NRWE",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      // updating
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script>
+      document.getElementById("admin").classList.add("hidden");
+
+      const profile = document.querySelector(".profile");
+      profile.addEventListener("click", (e) => {
+        document.querySelector(".over").classList.toggle("hidden");
+        // console.log("hello");
+        e.stopPropagation();
+      });
+      document.addEventListener("click", (e) => {
+        document.querySelector(".over").classList.add("hidden");
+      });
+
+      function openAdmin() {
+        window.location = "/admin?uid=" + auth.currentUser.uid;
+      }
+    </script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/orders.js"></script>
+  </body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>IndiaMart | Home</title>
+    <meta content="" name="description" />
+
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/logowt.svg" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+      .over {
+        position: absolute;
+        top: 50px;
+        left: calc(50% + 0px);
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 140px;
+        background-color: #fff;
+        border-radius: 7px;
+        box-shadow: 0 2px 20px rgba(1, 41, 112, 0.1);
+        padding: 10px;
+      }
+
+      .over p {
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      .over p a {
+        font-size: inherit;
+        color: inherit !important;
+        padding: 0;
+        font-weight: inherit !important;
+      }
+
+      .over p:hover {
+        color: #b83558;
+      }
+
+      img.vert-move {
+        -webkit-animation: mover 1s infinite alternate;
+        animation: mover 1s infinite alternate;
+      }
+      img.vert-move {
+        -webkit-animation: mover 1s infinite alternate;
+        animation: mover 1s infinite alternate;
+      }
+      @-webkit-keyframes mover {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-15px);
+        }
+      }
+      @keyframes mover {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-15px);
+        }
+      }
+
+      @media only screen and(max-width: 991px) {
+        .over {
+          left: calc(0% + 30px);
+          transform: translateX(0%);
+        }
+        .second {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+      }
+
+      @media only screen and(max-width: 950px) {
+        .home-img {
+          margin: 10px auto !important;
+          width: 85%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body onload="loggedIn()">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top">
+      <div
+        class="container-fluid container-xl d-flex align-items-center justify-content-between"
+      >
+        <a href="/" class="logo d-flex">
+          <img
+            src="assets/img/Group 7.svg"
+            style="width: 150px; max-height: none"
+            alt=""
+          />
+        </a>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto active" href="/">Home</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/#about">About Us</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/products">Shop</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#contact">Contact</a>
+            </li>
+            <li class="nav-btn hidden">
+              <a class="getstarted" href="/login">Log In</a>
+            </li>
+            <li class="nav-btn hidden">
+              <a class="getstarted getstarted-ghost" href="/signup">Sign Up</a>
+            </li>
+            <li
+              style="position: relative; cursor: pointer"
+              class="hidden nav-btn profile logout"
+            >
+              <a class="profile-name justify-content-start">
+                <i
+                  style="font-size: 25px; margin-right: 10px"
+                  class="bi bi-person-circle"
+                ></i
+                >Profile</a
+              >
+              <div class="over hidden">
+                <p style="margin-bottom: 0px; padding-bottom: 10px">
+                  <a href="/orders">My Orders</a>
+                </p>
+
+                <p
+                  style="
+                    margin-bottom: 10px;
+                    padding-top: 10px;
+                    border-top: 2px solid #d8d8d8;
+                  "
+                >
+                  <a href="/reset"> Edit Password </a>
+                </p>
+                <p
+                  style="
+                    margin-bottom: 10px;
+                    padding-top: 10px;
+                    border-top: 2px solid #d8d8d8;
+                  "
+                  id="admin"
+                >
+                  <a onclick="admin()">Admin Panel </a>
+                </p>
+                <p
+                  onclick="logout()"
+                  style="
+                    margin-bottom: 0;
+                    padding-top: 10px;
+                    border-top: 2px solid #d8d8d8;
+                  "
+                >
+                  Log Out
+                </p>
+              </div>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">Fresh products, <br />delivered fast.</h1>
+            <h2 data-aos="fade-up" data-aos-delay="400">
+              We are the leading wholesalers in the market providing exotic
+              products at cheapest rates.
+            </h2>
+            <div data-aos="fade-up" data-aos-delay="600">
+              <div class="text-center text-lg-start">
+                <a
+                  href="/products"
+                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+                >
+                  <span>Shop now</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-6 hero-img"
+            data-aos="zoom-out"
+            data-aos-delay="200"
+          >
+            <img
+              src="assets/img/main.svg"
+              style="width: 80%; margin-top: 50px"
+              class="img-fluid vert-move"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+          <div class="row gx-0">
+            <div
+              class="col-lg-7 d-flex flex-column justify-content-center"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="content">
+                <h2>Who we are.</h2>
+                <p>
+                  IndiaMart, started in the year 2013, is the leading wholesaler
+                  of fresh food products in the Indian Market. Total customer
+                  satisfaction is the goal of the company. We are equipped with
+                  state-of-art logistic facilities to deliver best quality goods
+                  to the customers.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-5 d-flex align-items-center"
+              data-aos="zoom-out"
+              data-aos-delay="200"
+            >
+              <img
+                src="assets/img/1.svg"
+                style="margin-left: 20px; height: 40vh"
+                class="img-fluid home-img"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+          <div class="row gx-0 second">
+            <div
+              class="col-lg-5 d-flex align-items-center"
+              data-aos="zoom-out"
+              data-aos-delay="200"
+            >
+              <img
+                src="assets/img/2.svg"
+                style="margin-right: 14px; height: 55vh"
+                class="img-fluid home-img"
+                alt=""
+              />
+            </div>
+
+            <div
+              class="col-lg-7 d-flex flex-column justify-content-center"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="content">
+                <h2>What we do.</h2>
+                <p>
+                  Here, we are providing you with freshly picked exotic products
+                  from the best farms across the globe. We pass every product
+                  that reaches our customers through numerous quality checks to
+                  make sure that we provide the best quality of our services.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+          <div class="row gx-0">
+            <div
+              class="col-lg-7 d-flex flex-column justify-content-center"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="content">
+                <h2>Our vision.</h2>
+                <p>
+                  We strive to offer our customers best quality products at
+                  industry competitive prices. We use superior quality packaging
+                  material and equipment to ensure safety of the products in
+                  transit and delivery. We understand the needs and demands of
+                  our customers and offer viable solutions for the same. Our
+                  sole aim is to supply a comprehensive range of best products
+                  at best prices.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-5 d-flex align-items-center"
+              data-aos="zoom-out"
+              data-aos-delay="200"
+            >
+              <img
+                src="assets/img/main.jpg"
+                style="margin-left: 40px"
+                class="img-fluid home-img"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+          <header class="section-header">
+            <h2>Testimonials</h2>
+            <p>What they are saying about us</p>
+          </header>
+
+          <div
+            class="testimonials-slider swiper-container"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    Superior quality of services and products! Would surely
+                    recommend to everyone.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-1.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Manish Sharma</h3>
+                    <h4>India</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    Totally satisfied with their product services! The
+                    deliveries were made on time without any hassle.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-2.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Praveen Kumar</h3>
+                    <h4>India</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    India Mart, one of the flexible suppliers who will do their
+                    best to keep their customers happy and they deliver
+                    high-quality food products with innovative packaging and
+                    on-time delivery.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-8.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Shivani Agarwal</h3>
+                    <h4>India</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    For my business, I usually contact India Mart for supplying
+                    the organic coconuts since they started. The quality of the
+                    product is extremely high, the service is second to none and
+                    the taste of them takes me back to my childhood and their
+                    packaging remains even more quality.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-3.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Mukul Dubey</h3>
+                    <h4>India</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    Highly satisfied by their timely and professional quality
+                    service. Thanks to India Mart for your continued commitment
+                    to providing the best of products!
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-4.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Adile Sahin</h3>
+                    <h4>Turkey</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    The shipment was shipped by India Mart in a timely manner
+                    and was exactly what we expected. The product was up to
+                    standards and what was discussed.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-5.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Abdul-Ahad</h3>
+                    <h4>Afghanistan</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    Everything I have ever bought from India Mart is always
+                    fresh, organic and tastes amazing! Their service is
+                    excellent with a personal touch that makes you feel like
+                    part of the family. We have also found the delivery to be
+                    extremely reliable.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-6.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Yusriyah Ayoob</h3>
+                    <h4>Saudi Arabia</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    Exceptional service with utmost attention to customer
+                    satisfaction. They catered to all my demands and delivered
+                    the products timely with brilliant packaging quality.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-9.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Nazanin Golshani</h3>
+                    <h4>Iran</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    A big thanks to India Mart for delivering my order as soon
+                    as possible. The employees were easily approachable and very
+                    helpful with all my needs.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-10.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Aqsa Ilmi</h3>
+                    <h4>Afghanistan</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    The product quality was beyond my expectations! I'm really
+                    satisfied by their incredible professional service and
+                    management.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-7.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Nayan Prasad</h3>
+                    <h4>India</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    The products were very fresh, and the taste was amazing!
+                    Thanks to your suppliers, I was able to get my delivery on
+                    time.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="assets/img/testimonials/testimonials-11.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Ankita Gupta</h3>
+                    <h4>India</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <!-- End Testimonials Section -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+          <header class="section-header">
+            <h2>Contact</h2>
+            <p>Contact Us</p>
+          </header>
+
+          <div class="row gy-4">
+            <div class="col-lg-6">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Address</h3>
+                    <p>
+                      India Mart Private Limited<br />P-1307, Main Road No. 3<br />Sector
+                      46, Gurugram<br />Haryana 122003
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-telephone"></i>
+                    <h3>Call Us</h3>
+                    <p>
+                      +91 9310465254<br />+91 99999999<br />0124-444444
+                      <br />
+                      <br />
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>info@indiamart.com<br />contact@indiamart.com</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-clock"></i>
+                    <h3>Open Hours</h3>
+                    <p>Monday - Friday<br />6:00AM - 11:59PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <form id="contact-form" class="php-email-form">
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control name"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      class="form-control email"
+                      name="email"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12">
+                    <input
+                      type="text"
+                      class="form-control subject"
+                      name="subject"
+                      placeholder="Subject"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12">
+                    <textarea
+                      class="form-control message"
+                      name="message"
+                      rows="6"
+                      placeholder="Message"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="col-md-12 text-center">
+                    <div class="sent-message">
+                      Your message has been sent. Thank you!
+                    </div>
+
+                    <button type="submit">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="footer-newsletter">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 text-center">
+              <h4>Our Newsletter</h4>
+              <p>Enter your email to stay updated.</p>
+            </div>
+            <div class="col-lg-6">
+              <form>
+                <input type="email" name="email" /><input
+                  type="submit"
+                  value="Subscribe"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4 d-flex justify-content-between">
+            <div class="col-lg-5 col-md-12 footer-info">
+              <a href="/" class="logo d-flex align-items-center">
+                <img src="/assets/img/Group 7.svg" alt="" />
+              </a>
+
+              <div class="social-links mt-3">
+                <a href="#" class="twitter">
+                  <i class="bi bi-twitter"></i>
+                </a>
+                <a href="#" class="facebook">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="instagram">
+                  <i class="bi bi-instagram bx bxl-instagram"></i>
+                </a>
+                <a href="#" class="linkedin">
+                  <i class="bi bi-linkedin bx bxl-linkedin"></i>
+                </a>
+              </div>
+              <br />
+            </div>
+
+            <div class="col-lg-3 col-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="#home">Home</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="#about">About Us</a>
+                </li>
+
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/products">Shop</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/policy#terms">Terms of service</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/policy#privacy">Privacy Policy</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/policy#refund">Refund Policy</a>
+                </li>
+
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="/policy#shipping">Shipping Policy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
+            >
+              <h4>Contact Us</h4>
+              <p>
+                India Mart Private Limited
+                <br />
+                Sector 46, Gurugram<br />Haryana-122003<br />
+                <strong>Phone:</strong>
+                +91 9999999999<br />
+                <strong>Email:</strong>
+                info@indiamart.com<br />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright
+          <strong> <span>IndiaMart</span> </strong>. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <script>
+      const profile = document.querySelector(".profile-name");
+      profile.addEventListener("click", (e) => {
+        document.querySelector(".over").classList.toggle("hidden");
+        // console.log("hello");
+        e.stopPropagation();
+      });
+      document.addEventListener("click", (e) => {
+        document.querySelector(".over").classList.add("hidden");
+      });
+    </script>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCW9zeRj5bo-ESmxfEDD1y3FvdKgS2Vngc",
+        authDomain: "india-mart-5d953.firebaseapp.com",
+        projectId: "india-mart-5d953",
+        storageBucket: "india-mart-5d953.appspot.com",
+        messagingSenderId: "359542252381",
+        appId: "1:359542252381:web:7a02ecce32ee548b5c7eb4",
+        measurementId: "G-2G8FY6NRWE",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      // updating
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="/assets/js/auth.js"></script>
+
+    <script>
+      document.getElementById("admin").classList.add("hidden");
+      document.querySelector(".sent-message").classList.add("hidden");
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          db.collection("contactus")
+            .doc("queries")
+            .get()
+            .then((doc) => {
+              let data = doc.data();
+              data.queries.unshift({
+                name: document.querySelector(".name").value,
+                email: document.querySelector(".email").value,
+                subject: document.querySelector(".subject").value,
+                message: document.querySelector(".message").value,
+                status: "pending",
+              });
+
+              db.collection("contactus")
+                .doc("queries")
+                .update({ queries: data.queries })
+                .then(() => {
+                  document
+                    .querySelector(".sent-message")
+                    .classList.remove("hidden");
+                  document.querySelector(".name").value = "";
+                  document.querySelector(".email").value = "";
+                  document.querySelector(".message").value = "";
+                  document.querySelector(".subject").value = "";
+                });
+            });
+        });
+
+      function admin() {
+        window.location = "/admin?uid=" + auth.currentUser.uid;
+      }
+    </script>
+  </body>
+</html>

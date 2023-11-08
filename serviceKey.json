@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "india-mart-5d953",
+  "private_key_id": "80862278289bb0caf0e8c15c6bdd99666d3ecff1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC4/RAq3DPuyJGt\n75MZAYlNxbOw+6+r9giDt34vUB7/qCm47SHMI6OilBYtuUc7Ae0Y+K2g3aeLX11f\nb5AKL/K9aYkJtytCQi8eCrihM+hcxJ0FttWTKuqPeG3sExk81RraT6ZQPfU1Mb8t\n4pvKu4FBZZuyjdyRr8AZesbdmVMLAdLx1ixZ9e6cQTo4fknWozdx/8SZKqRqk8Sr\nkF3gIyT5Jjj0UGEVoNMl3t9kyn6ZgZZfzNha1fm6DNVasd5+D2wIZWDabu4qgfUa\n9l1Vdb4P78/8yAvn8KxmThL3LQohAdyuE2ntSijaMZDFc8aCipikf+wqqQP/anNF\ndMBcPgiHAgMBAAECggEAGeUi3D0S7/wXmHeO6dMzOzXPn5i70KCSNI39FfZrQHJz\n1LUtI/xhLaL5L9FdzT7Jx9MXywr8JyBkW7WsPiDUI/uf+UIwxgepvNTXX4l6n3HO\nYTxkzUMWrpq3GHLb944FQkYgC9+Acb/S+UNdd5Wj1Fm639XH6ITnqSlsqRyLaWDN\nDcD1hNjqIhosA+Eaux4gyVoCvJgvbSQIYDuaH/c4ftjMrEbvg5jTbG0DeC+t+Tqb\nHV6nPTii0oFd55fXIZ+NHy5OW2LmC1i+fnvKNwd2t33y4PNElATioDIJaFRoVaZF\njuArPawQ0cEsuzazfU61EX31GjKl/ZHR+O0WZofxIQKBgQDc/N3vYQZI11HdkOBJ\nXc/zSUEBgyd0n8zoTe3xx33Dhiob9QO0+KNHmwQdqXY9uvsMODNTFcD2L5yEDwy1\nAfLCbveb+cSsSYfzu2kqJ+0WuXhnysZYYESABIbGtwlw5aeykoWfqRaDtUcHW4dr\n7apndFQ9Awrn1U9dIx1s4V1o7wKBgQDWTBasw9lL1MbI7K25JAarelEmIbTwzTEU\nnV63AVXzR04qzt4QHBaE+ktwm0MdhCc07wPSSn/G5j2hd6+wnZQvvvLxweD3iH7y\n8KY9M2cedxi+Oqcw19SeF6T8YFi2BzV2s93fwfX2IR8KUuO9Txueg6I1NK8gdKxR\nDG8escjp6QKBgBhYc0rP8ZVMw2QZddwfTa2LwHGeNVaP1E8zZqdgRuanfTQfRg1F\n5xcYaNert68NTmMGPgFFQEDe9etGjSvTzx7EgtrYJWaloyii2O8f/uql/DHTEQ7j\nbCh+VyrFN3EMm/D8W2Q/iI9yBSU2XDDzufYzxqQCFc18noWwPKmmGlhZAoGAD31G\nckxhq3KAv8sjr2skNEbOEMSE8JbUQloxm2a0ULZJtxxmvqFZG1mAFG6UhlCkCNZx\n30RVQgooUEB3aXuqV10k8EaEPUAXdPXh/jB19qTDHBTfOs+O5bJt0XQhVV7mBWNw\n2RiK77RrKvLc1TUfmPCIy/G36s+kGOOeMIjHLekCgYEAibPeX2oSAfuAYdeqXO9d\nObE9C4zOol1WNkYJAC0N6mdlnRmWprDS12ZWE/kYJpp4/hmmYBuSTQ0co9o2J8Fr\n8OOyPTU5goC90i6bAw2YI1I+fvcYhcuX3zo5otVExisAgPaSqHWE9hSHT2O0/+3X\nSPbXZrhVy6J5weklchx1dfo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-sivea@india-mart-5d953.iam.gserviceaccount.com",
+  "client_id": "101281451670556911214",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-sivea%40india-mart-5d953.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
