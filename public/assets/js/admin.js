@@ -1,7 +1,7 @@
 auth.onAuthStateChanged((user) => {
     if (user) {
 
-        if (user.uid != 'UMTOD10s3dR64T2RInauDqBLGOo2') {
+        if (user.uid != 'BfJ63pVMQJNMzQjXshM5oVNoDpb2') {
             window.location = '/err';
         }
         displayUsers(user);

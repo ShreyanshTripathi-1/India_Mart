@@ -64,6 +64,7 @@ function login() {
     });
     const email = loginForm["email"].value;
     const password = loginForm["password"].value;
+    console.log(email, password);
     auth
       .signInWithEmailAndPassword(email, password)
       .then((cred) => {
@@ -71,14 +72,11 @@ function login() {
         window.location = "/products";
       })
       .catch((err) => {
-        if (err.message.includes("There is no user record")) {
-          const errBox = document.querySelector("#emailHelp");
-          errBox.classList.remove("hidden");
-          errBox.innerHTML = "This email does not exist";
-        } else if (err.message.includes("password")) {
+        console.log(err);
+        if (err.message.includes("INVALID")) {
           const errBox = document.querySelector("#passHelp");
           errBox.classList.remove("hidden");
-          errBox.innerHTML = err.message;
+          errBox.innerHTML = "Invalid Credentials";
         }
       });
   });
@@ -175,7 +173,7 @@ function loggedIn(n) {
           }
 
 
-          if (user.uid == 'UMTOD10s3dR64T2RInauDqBLGOo2') {
+          if (user.uid == 'BfJ63pVMQJNMzQjXshM5oVNoDpb2') {
             document.getElementById('admin').classList.remove('hidden');
           }
           document.querySelector(

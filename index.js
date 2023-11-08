@@ -74,7 +74,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/admin", (req, res) => {
-  if (req.query.uid == "UMTOD10s3dR64T2RInauDqBLGOo2")
+  if (req.query.uid == "BfJ63pVMQJNMzQjXshM5oVNoDpb2")
     res.sendFile("/admin.html", { root: __dirname });
   else {
     res.writeHead(200, { "Content-Type": "text/html" });
